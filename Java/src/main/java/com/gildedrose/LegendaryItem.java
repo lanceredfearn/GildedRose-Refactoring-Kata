@@ -1,18 +1,26 @@
 package com.gildedrose;
 
 
-public class LegendaryItem implements ItemInterface {
+public class LegendaryItem extends Item implements ItemCalculator {
 
-    ItemType type;
-    String name;
-    int sellIn;
-    int quality;
+    public LegendaryItem(String name, int sellIn, int quality) {
+        super(name, sellIn, quality);
 
-    public LegendaryItem(ItemBuilder item) {
-        this.name = item.name;
-        this.sellIn = item.sellIn;
-        this.quality = item.quality;
-        this.type = type;
+    }
+
+    @Override
+    public String getName() {
+        return this.name;
+    }
+
+    @Override
+    public int getSellIn() {
+        return this.sellIn;
+    }
+
+    @Override
+    public int getQuality() {
+        return this.quality;
     }
 
     @Override
@@ -24,7 +32,6 @@ public class LegendaryItem implements ItemInterface {
     @Override
     public String toString() {
         return "LegendaryItem{" +
-            "type=" + type +
             ", name='" + name + '\'' +
             ", sellIn=" + sellIn +
             ", quality=" + quality +

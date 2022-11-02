@@ -1,19 +1,26 @@
 package com.gildedrose;
 
-public class ConjuredItem implements ItemInterface {
+public class ConjuredItem extends Item implements ItemCalculator {
 
-    ItemType type;
-    String name;
-    int sellIn;
-    int quality;
 
-    public ConjuredItem(ItemBuilder item) {
-        this.name = item.name;
-        this.sellIn = item.sellIn;
-        this.quality = item.quality;
-        this.type = item.type;
+    public ConjuredItem(String name, int sellIn, int quality) {
+        super(name, sellIn, quality);
     }
 
+    @Override
+    public String getName() {
+        return this.name;
+    }
+
+    @Override
+    public int getSellIn() {
+        return this.sellIn;
+    }
+
+    @Override
+    public int getQuality() {
+        return this.quality;
+    }
     public void calculate() {
         // Need to implement this logic
 

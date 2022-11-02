@@ -15,21 +15,12 @@ class GildedRose {
 
         allItems.forEach(item -> {
 
-            ItemBuilder currentItem = new ItemBuilder(item).build();
+            ItemCalculator currentItem = new ItemBuilder(item).build();
+            System.out.println(currentItem.getClass());
+            currentItem.calculate();
+            item.quality = currentItem.getQuality();
+            item.sellIn = currentItem.getSellIn();
 
-            if (currentItem.type == ItemType.Legendary) {
-                LegendaryItem legendaryItem = new LegendaryItem(currentItem);
-                legendaryItem.calculate();
-            } else if (currentItem.type == ItemType.Progressive) {
-                ProgressiveItem progressiveItem = new ProgressiveItem(currentItem);
-                progressiveItem.calculate();
-            } else if (currentItem.type == ItemType.Conjured) {
-                ConjuredItem conjuredItem = new ConjuredItem(currentItem);
-                conjuredItem.calculate();
-            } else {
-                StandardItem standardItem = new StandardItem(currentItem);
-                standardItem.calculate();
-            }
         });
     }
 }

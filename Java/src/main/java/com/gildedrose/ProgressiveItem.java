@@ -1,19 +1,25 @@
 package com.gildedrose;
 
-public class ProgressiveItem implements ItemInterface {
+public class ProgressiveItem extends Item implements ItemCalculator {
 
-    ItemType type;
-    String name;
-    int sellIn;
-    int quality;
 
-    public ProgressiveItem(ItemBuilder item) {
-        this.name = item.name;
-        this.sellIn = item.sellIn;
-        this.quality = item.quality;
-        this.type = type;
+    public ProgressiveItem(String name, int sellIn, int quality) {
+        super(name, sellIn, quality);
+    }
+    @Override
+    public String getName() {
+        return this.name;
     }
 
+    @Override
+    public int getSellIn() {
+        return this.sellIn;
+    }
+
+    @Override
+    public int getQuality() {
+        return this.quality;
+    }
     @Override
     public void calculate() {
         switch (this.name) {
